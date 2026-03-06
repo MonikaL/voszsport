@@ -10,9 +10,10 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="VOSZ Sport">
     
-    <!-- Az első kép az ikon (Apple Touch Icon a főképernyőhöz) -->
-    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/vosc-sport/vosc-sport.github.io/main/ChatGPT%20Image%202026.%20m%C3%A1rc.%205.%2010_46_44.jpg">
-    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/vosc-sport/vosc-sport.github.io/main/ChatGPT%20Image%202026.%20m%C3%A1rc.%205.%2010_46_44.jpg">
+    <!-- Favicon és App Ikon (Az első feltöltött fájl alapján) -->
+    <!-- Megjegyzés: Itt a végleges webtárhelyed URL-jét kell megadnod a képhez -->
+    <link rel="apple-touch-icon" href="voszsport_logo.jpg">
+    <link rel="icon" type="image/jpeg" href="voszsport_logo.jpg">
 
     <style>
         :root {
@@ -34,10 +35,10 @@
             color: #333;
         }
 
-        /* Fejléc kép (A második kép a leírásból) */
+        /* Fejléc kép (A második feltöltött fájl alapján) */
         .header {
             width: 100%;
-            background-color: var(--vosz-blue);
+            background-color: #114368; /* A logó háttérszínéhez igazítva */
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             display: flex;
             justify-content: center;
@@ -56,14 +57,14 @@
             margin-top: 30px;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 15px;
         }
 
         .welcome-text {
             text-align: center;
             font-weight: 600;
             font-size: 1.1rem;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             color: var(--vosz-blue);
         }
 
@@ -96,21 +97,16 @@
             color: white;
         }
 
-        .btn-disabled {
-            background-color: #d1d5db;
-            color: #9ca3af;
-            cursor: not-allowed;
-        }
-
         .footer {
             margin-top: auto;
-            padding: 20px;
-            font-size: 0.8rem;
+            padding: 30px 20px;
+            font-size: 0.85rem;
             color: #777;
             text-align: center;
+            line-height: 1.4;
         }
 
-        /* Iframe modal (ha nem akarunk kilépni az appból) */
+        /* Iframe modal a belső böngészéshez */
         #frame-container {
             display: none;
             position: fixed;
@@ -122,22 +118,27 @@
             z-index: 1000;
         }
 
+        .close-bar {
+            height: 50px;
+            background: var(--vosz-blue);
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 0 15px;
+        }
+
         .close-btn {
-            position: absolute;
-            top: 40px;
-            right: 20px;
-            background: rgba(0,0,0,0.5);
+            background: rgba(255,255,255,0.2);
             color: white;
             border: none;
-            padding: 10px 15px;
-            border-radius: 50%;
-            font-size: 20px;
-            z-index: 1001;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
         }
 
         iframe {
             width: 100%;
-            height: 100%;
+            height: calc(100% - 50px);
             border: none;
         }
     </style>
@@ -145,8 +146,8 @@
 <body>
 
     <div class="header">
-        <!-- Itt a fejléc kép látható -->
-        <img src="https://raw.githubusercontent.com/vosc-sport/vosc-sport.github.io/main/VOSZ%20Sport%20%C5%B0rlap%20fej.png" alt="VOSZ Sport Fejléc">
+        <!-- Fejléc kép (VOSZ Sport Űrlap fej.png) -->
+        <img src="VOSZ Sport Űrlap fej.png" alt="VOSZ Sport Fejléc">
     </div>
 
     <div class="container">
@@ -157,29 +158,34 @@
             Napi tevékenység rögzítése
         </a>
 
-        <!-- 2. gomb: Adatok megtekintése (később linkelve) -->
-        <a href="#" class="btn" onclick="alert('Az adattábla hamarosan elérhető lesz!'); return false;">
+        <!-- 2. gomb: Adatok megtekintése -->
+        <a href="#" class="btn" onclick="showInfo('Az adatok megtekintése funkció hamarosan elérhető lesz!'); return false;">
             Adatok megtekintése
         </a>
 
         <!-- 3. gomb: Részvételi szabályok -->
-        <a href="#" class="btn" onclick="alert('A részvételi szabályzat dokumentuma hamarosan feltöltésre kerül.'); return false;">
+        <a href="#" class="btn" onclick="showInfo('A részvételi szabályzat dokumentuma hamarosan feltöltésre kerül.'); return false;">
             Részvételi szabályok
         </a>
     </div>
 
     <div class="footer">
-        VOSZ Sport Kihívás 2026<br>
-        2026.03.15. – 2026.11.30.
+        <strong>VOSZ Sport Kihívás 2026</strong><br>
+        Időtartam: 2026.03.15. – 2026.11.30.
     </div>
 
-    <!-- Rejtett iframe a folyamatos élményért (opcionális használat) -->
     <div id="frame-container">
-        <button class="close-btn" onclick="closeFrame()">×</button>
+        <div class="close-bar">
+            <button class="close-btn" onclick="closeFrame()">Bezárás</button>
+        </div>
         <iframe id="app-frame" src=""></iframe>
     </div>
 
     <script>
+        function showInfo(msg) {
+            alert(msg);
+        }
+
         function openInApp(url) {
             document.getElementById('app-frame').src = url;
             document.getElementById('frame-container').style.display = 'block';
@@ -190,15 +196,14 @@
             document.getElementById('app-frame').src = '';
         }
         
-        // Ez segít abban, hogy mobilon ne ugorjon ki a Safariba a link kattintáskor
+        // PWA navigációs trükk az app-érzet fenntartásához
         if (("standalone" in window.navigator) && window.navigator.standalone) {
-            var noddy, remotes = false;
             document.addEventListener('click', function(event) {
-                noddy = event.target;
+                let noddy = event.target;
                 while (noddy.nodeName !== "A" && noddy.nodeName !== "HTML") {
                     noddy = noddy.parentNode;
                 }
-                if ('href' in noddy && noddy.href.indexOf('http') !== -1 && (noddy.href.indexOf(document.location.host) !== -1 || remotes)) {
+                if ('href' in noddy && noddy.href.indexOf('http') !== -1 && (noddy.href.indexOf(document.location.host) !== -1 || true)) {
                     event.preventDefault();
                     document.location.href = noddy.href;
                 }
