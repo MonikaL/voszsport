@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOSZ Egészségmegőrzés Program - Szabályzat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .rule-card {
+            transition: transform 0.2s ease-in-out;
+        }
+        .rule-card:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="text-slate-800 leading-relaxed">
+
+    <!-- Navigáció / Fejléc -->
+    <header class="bg-white shadow-sm sticky top-0 z-10 border-b border-slate-200">
+        <div class="max-w-2xl mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="font-bold text-blue-900 truncate">VOSZ Program</h1>
+            <a href="javascript:history.back()" class="text-sm font-semibold text-blue-600 hover:text-blue-800 transition">
+                &larr; Vissza
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-2xl mx-auto px-4 py-8">
+        
+        <!-- Cím szekció -->
+        <div class="mb-10 text-center">
+            <div class="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4">
+                Hivatalos Dokumentum
+            </div>
+            <h2 class="text-3xl font-extrabold text-slate-900 mb-4">Pontozási és részvételi szabályok</h2>
+            <p class="text-slate-500 text-sm">Érvényes: 2026. március 15-től</p>
+        </div>
+
+        <div class="space-y-6">
+            
+            <!-- 1. Sporttevékenység -->
+            <section class="rule-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                <div class="flex items-center mb-4">
+                    <div class="bg-blue-600 text-white w-10 h-10 rounded-lg flex items-center justify-center font-bold mr-4 shadow-md">1</div>
+                    <h3 class="text-xl font-bold text-slate-800">Sporttevékenység - <span class="text-blue-600">2 pont</span></h3>
+                </div>
+                <div class="space-y-3 text-slate-600">
+                    <p>Sportolással töltött alkalomnak számít minden <strong>legalább 30 percig tartó</strong>, tudatosan végzett fizikai aktivitás (pl. futás, kerékpározás, úszás, edzés, jóga, pilates, intenzív séta).</p>
+                    <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded text-sm text-amber-800 italic">
+                        Az alkalmi mozgás (pl. bevásárlás, házimunka) nem minősül sporttevékenységnek.
+                    </div>
+                    <p class="text-sm font-semibold text-slate-700">Naponta több tevékenység rögzíthető, de csak egyszer jár érte a 2 pont.</p>
+                </div>
+            </section>
+
+            <!-- 2. Egyéb programok -->
+            <section class="rule-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                <div class="flex items-center mb-4">
+                    <div class="bg-blue-600 text-white w-10 h-10 rounded-lg flex items-center justify-center font-bold mr-4 shadow-md">2</div>
+                    <h3 class="text-xl font-bold text-slate-800">Egyéb programok - <span class="text-blue-600">1 pont</span></h3>
+                </div>
+                <p class="text-slate-600">A VOSZ által támogatott egészségmegőrző programokon (pl. előadás, workshop) való részvételért jár. Ezeket a pontokat a program gazdája hagyja jóvá.</p>
+            </section>
+
+            <!-- 3. Adatrögzítés -->
+            <section class="rule-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                <div class="flex items-center mb-4">
+                    <div class="bg-blue-600 text-white w-10 h-10 rounded-lg flex items-center justify-center font-bold mr-4 shadow-md">3</div>
+                    <h3 class="text-xl font-bold text-slate-800">Adatrögzítés szabálya</h3>
+                </div>
+                <ul class="list-disc ml-5 space-y-2 text-slate-600">
+                    <li>A rögzítést a résztvevők maguk végzik az alkalmazásban.</li>
+                    <li>Egy teljesítmény legfeljebb az <strong>adott napot követő 7 napon belül</strong> rögzíthető.</li>
+                    <li>Időszak: <span class="font-semibold text-slate-800">2026.03.15. – 2026.11.30.</span></li>
+                    <li>Eredményhirdetés: 2026. december.</li>
+                </ul>
+            </section>
+
+            <!-- 4. Fair Play -->
+            <section class="rule-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100 border-l-4 border-l-blue-500">
+                <h3 class="text-lg font-bold text-slate-800 mb-2">4. Fair részvétel</h3>
+                <p class="text-slate-600">A program a résztvevők jóhiszemű és valós teljesítményen alapuló adatrögzítésére épül.</p>
+            </section>
+
+            <!-- 5. Adatkezelés -->
+            <section class="bg-slate-200 p-6 rounded-2xl text-xs text-slate-500">
+                <h3 class="font-bold mb-2 uppercase tracking-widest text-slate-700">5. Adatkezelés</h3>
+                <p>A regisztrációval a résztvevő hozzájárul adatainak kezeléséhez a VOSZ Női Szekció által a program lebonyolítása érdekében (2026.03.15-2026.12.31.), és elfogadja a szabályzatot.</p>
+            </section>
+
+        </div>
+
+        <footer class="mt-12 mb-8 text-center text-slate-400 text-xs">
+            &copy; 2026 VOSZ Női Szekció. Minden jog fenntartva.
+        </footer>
+    </main>
+
+</body>
+</html>
