@@ -10,10 +10,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="VOSZ Sport">
     
-    <!-- Favicon és App Ikon (Az első feltöltött fájl alapján) -->
-    <!-- Megjegyzés: Itt a végleges webtárhelyed URL-jét kell megadnod a képhez -->
-    <link rel="apple-touch-icon" href="favicon.png>
-    <link rel="icon" type="image/jpeg" href="favicon.png>
+    <!-- Favicon és App Ikon -->
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="icon" type="image/png" href="favicon.png">
 
     <style>
         :root {
@@ -35,37 +34,39 @@
             color: #333;
         }
 
-        /* Fejléc kép (A második feltöltött fájl alapján) */
-        .header {
+        /* Felső konténer: Logo balra, szöveg jobbra */
+        .top-container {
             width: 100%;
-            background-color: #114368; /* A logó háttérszínéhez igazítva */
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 500px;
+            background-color: var(--vosz-white);
             display: flex;
-            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
         }
 
-        .header img {
-            width: 100%;
-            max-width: 600px;
+        .top-container img {
+            width: 80px;
             height: auto;
-            display: block;
+            margin-right: 20px;
+        }
+
+        .welcome-text {
+            flex: 1;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--vosz-blue);
+            line-height: 1.3;
         }
 
         .container {
             width: 90%;
             max-width: 400px;
-            margin-top: 30px;
             display: flex;
             flex-direction: column;
             gap: 15px;
-        }
-
-        .welcome-text {
-            text-align: center;
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-            color: var(--vosz-blue);
         }
 
         /* Gombok stílusa */
@@ -145,14 +146,14 @@
 </head>
 <body>
 
-    <div class="header">
-        <!-- Fejléc kép (VOSZ Sport Űrlap fej.png) -->
-        <img src="voszsport_header.png" alt="VOSZ Sport Fejléc">
+    <div class="top-container">
+        <!-- Logo bal oldalon -->
+        <img src="voszsport_logo.png" alt="VOSZ Logo">
+        <!-- Üdvözlő szöveg jobb oldalon -->
+        <div class="welcome-text">Üdvözöljük a VOSZ Egészségmegőrzés Programban!</div>
     </div>
 
     <div class="container">
-        <div class="welcome-text">Üdvözöljük a VOSZ Egészségmegőrzés Programban!</div>
-
         <!-- 1. gomb: Napi tevékenység -->
         <a href="https://forms.gle/BiNmFmKCvKtoZ18cA" class="btn btn-primary">
             Napi tevékenység rögzítése
