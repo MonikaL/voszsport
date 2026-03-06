@@ -140,6 +140,23 @@
             color: var(--vosz-logo-blue);
         }
 
+        .developer-credit {
+            margin-top: 10px;
+            font-size: 0.75rem;
+            opacity: 0.8;
+            font-style: italic;
+        }
+
+        .developer-credit a {
+            color: var(--vosz-logo-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .developer-credit a:hover {
+            text-decoration: underline;
+        }
+
         /* Iframe modal */
         #frame-container {
             display: none;
@@ -207,6 +224,9 @@
     <div class="footer">
         <strong>VOSZ Sport Kihívás 2026</strong><br>
         2026. március 15. – 2026. november 30.
+        <div class="developer-credit">
+            Készítette: <a href="https://www.linkedin.com/in/monika-lantos/" target="_blank">Lantos Mónika</a>
+        </div>
     </div>
 
     <div id="frame-container">
@@ -235,8 +255,8 @@
                     noddy = noddy.parentNode;
                 }
                 if (noddy && 'href' in noddy && noddy.href.indexOf('http') !== -1) {
-                    if (noddy.href.indexOf('forms.gle') !== -1 || noddy.href.indexOf('lookerstudio') !== -1) {
-                        // Külső platformok kezelése
+                    if (noddy.href.indexOf('forms.gle') !== -1 || noddy.href.indexOf('lookerstudio') !== -1 || noddy.href.indexOf('linkedin.com') !== -1) {
+                        // Külső platformok kezelése - engedjük, hogy a rendszer böngészője nyissa meg őket
                     } else {
                         event.preventDefault();
                         document.location.href = noddy.href;
