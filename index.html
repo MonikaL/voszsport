@@ -3,26 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
     <title>VOSZ Sport Program</title>
     
-    <!-- Mobil App Beállítások -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="VOSZ Sport">
     
-    <!-- Favicon és App Ikon -->
     <link rel="apple-touch-icon" href="favicon.png">
     <link rel="icon" type="image/png" href="favicon.png">
 
     <style>
         :root {
-            /* Színek a logóból kinyerve */
             --vosz-logo-blue: #163e75;
             --vosz-logo-red: #d31d24;
             --vosz-logo-light-blue: #0093d7;
             --vosz-white: #ffffff;
             --vosz-bg-gray: #f2f5f8;
-            
             --shadow-standard: 0 4px 12px rgba(0,0,0,0.12);
             --shadow-active: 0 8px 24px rgba(0,0,0,0.2);
         }
@@ -39,7 +39,6 @@
             color: #1a1a1a;
         }
 
-        /* Felső konténer: Logo balra, szöveg jobbra */
         .top-container {
             width: 100%;
             max-width: 500px;
@@ -76,7 +75,6 @@
             gap: 18px;
         }
 
-        /* Gombok alap stílusa */
         .btn {
             display: flex;
             align-items: center;
@@ -94,34 +92,24 @@
             text-align: center;
         }
 
-        /* Hover effektus */
         .btn:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-active);
             filter: brightness(1.1);
         }
 
-        /* Kiemelt gomb (Napi rögzítés) - A logó vörös színe */
         .btn-primary {
             background: linear-gradient(135deg, var(--vosz-logo-red) 0%, #b3161c 100%);
             font-size: 1.2rem;
             padding: 22px 24px;
         }
 
-        /* Másodlagos gomb - A logó kékje */
         .btn-secondary {
             background: linear-gradient(135deg, var(--vosz-logo-blue) 0%, #0d2a52 100%);
         }
 
-        /* Harmadlagos gomb - Világosabb kék */
         .btn-info {
             background: linear-gradient(135deg, var(--vosz-logo-light-blue) 0%, #007bb3 100%);
-        }
-
-        /* Aktív állapot (kattintáskor) */
-        .btn:active {
-            transform: translateY(-1px);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
         .footer {
@@ -135,87 +123,30 @@
             width: 100%;
             box-sizing: border-box;
         }
-
-        .footer strong {
-            color: var(--vosz-logo-blue);
-        }
-
-        .developer-credit {
-            margin-top: 10px;
-            font-size: 0.75rem;
-            opacity: 0.8;
-            font-style: italic;
-        }
-
+        
         .developer-credit a {
             color: var(--vosz-logo-blue);
             text-decoration: none;
             font-weight: 600;
-        }
-
-        .developer-credit a:hover {
-            text-decoration: underline;
-        }
-
-        /* Iframe modal */
-        #frame-container {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: white;
-            z-index: 1000;
-        }
-
-        .close-bar {
-            height: 60px;
-            background: var(--vosz-logo-blue);
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            padding: 0 15px;
-        }
-
-        .close-btn {
-            background: var(--vosz-logo-red);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 12px;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        iframe {
-            width: 100%;
-            height: calc(100% - 60px);
-            border: none;
         }
     </style>
 </head>
 <body>
 
     <div class="top-container">
-        <!-- Logo frissített kiterjesztéssel -->
         <img src="favicon.png" alt="VOSZ Logo">
         <div class="welcome-text">Üdvözöljük a VOSZ Egészségmegőrzés Programban!</div>
     </div>
 
     <div class="container">
-        <!-- 1. gomb: Napi tevékenység (Vörös) -->
         <a href="https://forms.gle/7mFBHxcDYXEcvqmA8" class="btn btn-primary">
             Napi tevékenység rögzítése
         </a>
 
-        <!-- 2. gomb: Adatok megtekintése (Sötétkék) -->
-        <a href="https://lookerstudio.google.com/reporting/2e410f7b-c07b-4431-be01-7f5e9c096e18/page/FhOrF" target="_blank" class="btn btn-secondary">
+        <a href="https://lookerstudio.google.com/reporting/2e410f7b-c07b-4431-be01-7f5e9c096e18/page/FhOrF?v=2" target="_blank" class="btn btn-secondary">
             Adatok megtekintése
         </a>
 
-        <!-- 3. gomb: Részvételi szabályok (Világoskék) -->
         <a href="szabalyzat.html" target="_blank" class="btn btn-info">
             Részvételi szabályok
         </a>
@@ -229,24 +160,15 @@
         </div>
     </div>
 
-    <div id="frame-container">
-        <div class="close-bar">
-            <button class="close-btn" onclick="closeFrame()">Bezárás</button>
-        </div>
-        <iframe id="app-frame" src=""></iframe>
-    </div>
-
     <script>
-        function openInApp(url) {
-            document.getElementById('app-frame').src = url;
-            document.getElementById('frame-container').style.display = 'block';
+        // KÉNYSZERÍTETT FRISSÍTÉS LOGIKA:
+        // Megnézzük, futott-e már a frissítés ezen a verzión (v2)
+        if (localStorage.getItem('app_version') !== '2.0') {
+            localStorage.setItem('app_version', '2.0');
+            // Töröljük a cache-t és újratöltünk
+            window.location.reload(true);
         }
 
-        function closeFrame() {
-            document.getElementById('frame-container').style.display = 'none';
-            document.getElementById('app-frame').src = '';
-        }
-        
         // PWA navigációs kezelés
         if (("standalone" in window.navigator) && window.navigator.standalone) {
             document.addEventListener('click', function(event) {
@@ -255,12 +177,7 @@
                     noddy = noddy.parentNode;
                 }
                 if (noddy && 'href' in noddy && noddy.href.indexOf('http') !== -1) {
-                    if (noddy.href.indexOf('forms.gle') !== -1 || noddy.href.indexOf('lookerstudio') !== -1 || noddy.href.indexOf('linkedin.com') !== -1) {
-                        // Külső platformok kezelése - engedjük, hogy a rendszer böngészője nyissa meg őket
-                    } else {
-                        event.preventDefault();
-                        document.location.href = noddy.href;
-                    }
+                    // Ha belső link vagy Looker, engedjük az alapértelmezett megnyitást
                 }
             }, false);
         }
